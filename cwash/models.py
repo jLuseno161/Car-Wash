@@ -30,3 +30,35 @@ class Profile(models.Model):
         Profile.objects.get(user_id=id)
 
 
+class Booking(models.Model):
+    user = user = models.OneToOneField(User, on_delete=models.CASCADE)
+    email = models.CharField(max_length=30, blank=True)
+    mobile = models.IntegerField(default=0)
+    appointment_date = models.DateTimeField(auto_now_add=True)
+    timeframe =(
+        ('Morning', 'Morning'),
+        ('Evening', 'evening'),
+        ('Afternoon', 'afternoon'),)
+    
+# class Washplan(models.Model):
+#     basic = models.ForeignKey(Basic, on_delete)
+#     deluxe = 
+#     ultimate = 
+#     premium = 
+
+class Washplan(models.Model):
+    plan = models.CharField(max_length=50)
+    price = models.IntegerField(max_length=50)
+    duration = models.CharField(max_length=50)
+    hwash= models.CharField(max_length=50)
+    hdry = models.CharField(max_length=50)
+    wshine = models.CharField(max_length=50)
+    tdress = models.CharField(max_length=50)
+    window = models.CharField(max_length=50)
+    sealer = models.CharField(max_length=50)
+    vacuum = models.CharField(max_length=50)
+    dashboard = models.CharField(max_length=50)
+    airfreshner = models.CharField(max_length=50)
+    coat = models.CharField(max_length=50)
+    vinyl = models.CharField(max_length=50)
+    rainx = models.CharField(max_length=50)
