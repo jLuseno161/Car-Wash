@@ -10,10 +10,9 @@ from django.contrib.auth import login, authenticate
 # Create your views here.
 
 
-@login_required(login_url='/accounts/login/')
 def index(request):
-    
-     return HttpResponse('Hi there')
+    #  return HttpResponse('Hi there')
+    return render(request,'index.html')
 
 
 
