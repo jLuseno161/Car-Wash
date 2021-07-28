@@ -2,12 +2,8 @@
 {% load static %}
 {% load bootstrap3 %}
 {% load crispy_forms_tags %}
-
 {% block content %}
 
-<style>
-
-</style>
 <section class="landing">
     <div id="overlay">
         <div class="col-md-2"></div>
@@ -28,8 +24,8 @@
             {% for plan in plans %}
             <div class="col-md-3 d-flex justify-content-center">
                 <div class="card">
-                        <h5 class="card-title" style="font-weight: 700; font-size: 15pt; color:navy">
-                            {{plan.plan}}</h5>
+                    <h5 class="card-title" style="font-weight: 700; font-size: 15pt; color:navy">
+                        {{plan.plan}}</h5>
 
                     <div class="card-body">
                         <hr>
@@ -62,8 +58,12 @@
                     </div>
                 </div>
                 <div class="col-md-8 col-sm-12">
-                  <form method="post">
+                    <form action="{%url 'index' %}"  method="post" enctype="multipart/form-data" novalidate>
+                        <div style='display:none'>
+                            <input type="hidden" name="csrfmiddlewaretoken" value="a643fab735d5ce6377ff456e73c4b1af" />
+                        </div>
                         {% csrf_token %}
+
                         <div class="form-row">
                             <div class="form-group col-md-12 mb-0">
                                 <h5 class="form-heading-title"><span class="form-heading-no">1.</span>Vehicle
@@ -95,16 +95,26 @@
                             </div>
 
 
-                            <div class="form-group col-md-6 mb-0">
-                                {{ form.user|as_crispy_field }}
-                            </div>
+
                             <div class="form-group col-md-6 mb-0">
                                 {{ form.email|as_crispy_field }}
                             </div>
                         </div>
 
                         <div class="form-row">
-                            <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.mobile|as_crispy_field }}
+                            </div>
+                        </div>
+
+                        <!-- <button type="submit">Submit</button> -->
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12 mb-0 text-right">
+                                <div class="pull-right">
+                                    <input type="submit" name="submit" value="Submit" class="submit submitButton" id="submit-id-submit" />
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>

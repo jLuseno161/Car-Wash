@@ -12,17 +12,14 @@ from django.contrib.auth import login, authenticate
 
 def index(request):
     plans = Washplan.objects.all().order_by('price')
-
     service = services.objects.all()
-    # service = services.objects.filter(service=plans)
-
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
         if form.is_valid():
-            appointment = form.save()
-            appointment.save()
-
-            return redirect('index')
+            form.instance.user = request.user
+            user = form.save()
+            user.save()
+        return redirect('index')
     else:
         form = AppointmentForm()
     return render(request, 'index.html', {'plans': plans, 'service': service, 'form': form})

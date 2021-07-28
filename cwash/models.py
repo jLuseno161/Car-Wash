@@ -8,7 +8,6 @@ from django.dispatch import receiver
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     contact = models.IntegerField(default=0)
-    email = models.CharField(max_length=30, blank=True)
     profile_pic = CloudinaryField('profile')
     bio = models.TextField(max_length=500, blank=True)
 
@@ -39,20 +38,21 @@ class services(models.Model):
 
 
 class Washplan(models.Model):
-    plan = models.CharField(max_length=50)
+    plan = models.CharField(max_length=50, blank=False)
     price = models.IntegerField()
     duration = models.CharField(max_length=50)
-    service = models.ManyToManyField(services, related_name='services', null=True, blank=True)
+    service = models.ManyToManyField(
+        services, related_name='services', null=True, blank=True)
 
     def __str__(self):
         return self.plan
 
+
 class Booking(models.Model):
-    user = user = models.OneToOneField(User, on_delete=models.CASCADE)
-    email = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='emails')
+    user = models.OneToOneField(User,default='', on_delete=models.CASCADE)
+    email = models.CharField(max_length=30, blank=True)
     mobile = models.IntegerField()
-    plan = models.ForeignKey(Washplan, on_delete=models.CASCADE)
+    plan = models.ForeignKey(Washplan, on_delete=models.CASCADE, default='')
     vehicle_choices = (
         ('', 'Choose Vehicle Type'),
         ('Regular Car', 'Regular Car'),
@@ -64,7 +64,8 @@ class Booking(models.Model):
 
     vehicle_type = models.CharField(
         choices=vehicle_choices, default=0, blank=False, max_length=50)
-    appointment_date = models.DateTimeField()
+    appointment_date = models.CharField(max_length=30, blank=True)
+
     time_frame = (
         ('', 'Choose Time Frame'),
         ("Morning", 'Morning'),

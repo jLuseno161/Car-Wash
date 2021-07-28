@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'rest_framework',
 ]
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
