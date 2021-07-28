@@ -62,98 +62,7 @@
                     </div>
                 </div>
                 <div class="col-md-8 col-sm-12">
-                    <!-- <div class="appointment-block">
-                        <h3 class="section-heading">Get an Appointment</h3>
-                        <p class="sub-heading">To schedule an appointment give us a call at 1-800-123-4567 or fill out
-                            the form below with your information and car details.</p>
-                        <form method="POST" action="https://mediacity.co.in/autopluslv/public" accept-charset="UTF-8"
-                            class="appointment-form">
-                            <h5 class="form-heading-title"><span class="form-heading-no">1.</span>Vehicle
-                                Information</h5>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <select class="form-control select2 select2-hidden-accessible"
-                                            required="required" name="washing_plan_id" tabindex="-1" aria-hidden="true">
-                                            <option value="" selected="selected">Choose Washing Plan</option>
-                                            <option value="1">Basic Plan</option>
-                                            <option value="2">Deluxe Washing</option>
-                                            <option value="3">Ultimate Washing</option>
-                                            <option value="4">Super Washing</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <select class="form-control select2 select2-hidden-accessible"
-                                            required="required" name="vehicle_types_id" tabindex="-1"
-                                            aria-hidden="true">
-                                            <option value="" selected="selected">Choose Vehicle Type</option>
-                                            <option value="1">Regular Car</option>
-                                            <option value="2">Medium Car</option>
-                                            <option value="3">Compact Suv</option>
-                                            <option value="4">Mini Van</option>
-                                            <option value="5">Pickup Truck</option>
-                                            <option value="6">Cargo Truck</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <h5 class="form-heading-title"><span class="form-heading-no">2.</span>Appointment
-                                Information</h5>
-
-
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control date-pick" required="required"
-                                            placeholder="Appointment Date" name="appointment_date" type="text">
-                                        <small class="text-danger"></small>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <select class="form-control select2 select2-hidden-accessible"
-                                            required="required" name="time_frame" tabindex="-1" aria-hidden="true">
-                                            <option value="" selected="selected">Choose Time Frame</option>
-                                            <option value="morning">Morning</option>
-                                            <option value="evening">Evening</option>
-                                            <option value="afternoon">Afternoon</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <h5 class="form-heading-title"><span class="form-heading-no">3.</span>Contact
-                                Details</h5>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control" required="required" placeholder="Enter Your Name"
-                                            name="name" type="text">
-                                        <small class="text-danger"></small>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control" required="required" placeholder="eg: mymail@.com"
-                                            name="email" type="email">
-                                        <small class="text-danger"></small>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control" required="required" placeholder="Enter Mobile No."
-                                            name="mobile" type="text">
-                                        <small class="text-danger"></small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pull-right">
-                                <input class="btn btn-default pull-right" type="submit" value="Book Now">
-                            </div>
-                        </form>
-                    </div> -->
-                    <form method="post">
+                  <form method="post">
                         {% csrf_token %}
                         <div class="form-row">
                             <div class="form-group col-md-12 mb-0">
@@ -195,17 +104,7 @@
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group col-md-6 mb-0">
-                                {{ form.mobile|as_crispy_field }}
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-12 mb-0 text-right">
-                                <div class="pull-right">
-                                    <input class="btn btn-default pull-right" type="submit" value="Book Now">
-                                </div>
-                            </div>
+                            <div class="form-row">
                         </div>
                     </form>
                 </div>

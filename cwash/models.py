@@ -44,22 +44,8 @@ class Washplan(models.Model):
     duration = models.CharField(max_length=50)
     service = models.ManyToManyField(services, related_name='services', null=True, blank=True)
 
-
     def __str__(self):
         return self.plan
-    # hwash = models.CharField(max_length=50, blank=True, null=True)
-    # hdry = models.CharField(max_length=50, blank=True, null=True)
-    # wshine = models.CharField(max_length=50, blank=True, null=True)
-    # tdress = models.CharField(max_length=50, blank=True, null=True)
-    # window = models.CharField(max_length=50, blank=True, null=True)
-    # sealer = models.CharField(max_length=50, blank=True, null=True)
-    # vacuum = models.CharField(max_length=50, blank=True, null=True)
-    # dashboard = models.CharField(max_length=50, blank=True, null=True)
-    # airfreshner = models.CharField(max_length=50, blank=True, null=True)
-    # coat = models.CharField(max_length=50, blank=True, null=True)
-    # vinyl = models.CharField(max_length=50, blank=True, null=True)
-    # rainx = models.CharField(max_length=50, blank=True, null=True)
-
 
 class Booking(models.Model):
     user = user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -86,10 +72,3 @@ class Booking(models.Model):
         ("Afternoon", 'Afternoon'))
     timeframe = models.CharField(
         choices=time_frame, default=0, blank=False, max_length=50)
-
-
-# class Washplan(models.Model):
-#     basic = models.ForeignKey(Basic, on_delete)
-#     deluxe =
-#     ultimate =
-#     premium =
