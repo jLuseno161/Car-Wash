@@ -60,7 +60,6 @@ footer {
 
 .card {
     margin: 2%;
-    color: navy;
     text-align: center;
     border: 1px solid rgb(230, 227, 227);
     border-radius:3%;
@@ -69,3 +68,22 @@ footer {
 .card-title {
     margin-bottom: 0.5rem;
 }
+
+.appointment {
+    background-color:#1E222B;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    flex-direction: column;
+    background-position: center center;
+}
+
+#app_overlay {
+    top: 0;
+    bottom: 0;
+    padding-bottom: 3%;
+    padding-top: 3%;
+    font-size: 15pt;
+    color: whitesmoke;
+}
+

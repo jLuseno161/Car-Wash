@@ -54,8 +54,10 @@ INSTALLED_APPS = [
     'cwash.apps.CwashConfig',
     'bootstrap3',
     'cloudinary',
+    'crispy_forms',
     'rest_framework',
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',

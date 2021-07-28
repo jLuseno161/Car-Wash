@@ -1,6 +1,6 @@
-from cwash.models import Profile
+from cwash.models import Profile, Washplan, services
 from django.contrib.auth.models import User
-from cwash.forms import SignUpForm, UpdateProfileForm, UpdateUserForm
+from cwash.forms import AppointmentForm, SignUpForm, UpdateProfileForm, UpdateUserForm
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404, render, redirect
@@ -11,9 +11,21 @@ from django.contrib.auth import login, authenticate
 
 
 def index(request):
-    #  return HttpResponse('Hi there')
-    return render(request,'index.html')
+    plans = Washplan.objects.all().order_by('price')
 
+    service = services.objects.all()
+    # service = services.objects.filter(service=plans)
+
+    if request.method == 'POST':
+        form = AppointmentForm(request.POST)
+        if form.is_valid():
+            appointment = form.save()
+            appointment.save()
+
+            return redirect('index')
+    else:
+        form = AppointmentForm()
+    return render(request, 'index.html', {'plans': plans, 'service': service, 'form': form})
 
 
 def signup(request):
