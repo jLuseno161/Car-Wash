@@ -1,0 +1,67 @@
+{%extends 'base.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<section class="booking text-center ">
+    <div id="app_overlay">
+        <h2 style="font-weight: 700;">ABOUT <span style="color:gold">US</span></h2>
+        <a href="/" style="text-decoration:none; color:white">Home</a> <span style="color:gold">/</span> About Us
+
+    </div>
+</section>
+
+<section class="container text-center" style="margin-top:3%; margin-bottom:3%">
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            {% load static %}
+            <img class="card-img-top mb-10 img-responsive" src="{% static "img/about.webp" %}"
+                style="height:auto; width:100%">
+        </div>
+
+    </div>
+    <div class="col-md-5">
+        <h3 style="font-weight: 700;"><span style="color:gold">A Reputation </span>10 Years in the Making</h3>
+
+        <p style="font-weight: 500; font-size:12pt; text-align:justify" class="">We strive to be your most convenient
+            car
+            washing option by
+            bringing our service
+            right to your doorstep. Our pricing is competitive and our knowledge of detailing is unmatched.
+            <br>Whether
+            you are seeking a quick car wash that comes to you or a show car quality finish. Autwaves carwash has
+            the skills to get the job done. We're happy to work with you to put together a package that addresses
+            your needs, no more no less.</p>
+
+    </div>
+
+</section>
+<!-- <section class="container-fluid text-center ">
+    <div class="col-md-6"></div>
+    <div class="col-md-6">
+        <h2 style="font-weight: 700;"><span style="color:gold">Our Services </span></h2>
+
+        <div class="col-md-3 d-flex justify-content-center">
+            <div class="card">
+                <img src="" alt="">
+                <div class="card-body" style="background-color: rgb(36, 35, 35);">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section> -->
+<section class="maps">
+    <div class="gmap_canvas">
+        <iframe width="100%" height="100%" id="gmap_canvas"
+            src="https://maps.google.com/maps?q=westlands&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+            scrolling="no" marginheight="0" marginwidth="0">
+        </iframe>
+    </div>
+</section>
+
+
+{% endblock %}

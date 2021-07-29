@@ -71,3 +71,7 @@ def book_appointment(request):
     else:
         form = AppointmentForm()
     return render(request, 'book.html', {'form': form})
+
+def about(request):
+   
+    return render(request, 'about.html')

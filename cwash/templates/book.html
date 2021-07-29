@@ -4,18 +4,17 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<section class="appointment">
+<section class="appointment" style="background-color:gold">
     <div id="app_overlay">
 
         <div class="container">
             <div class="row">
-                <div class="col-md-4 hidden-sm">
+                <div class="col-md-2 hidden-sm">
                     <div class="appointment-img">
-                        <img src="https://cdn.pixabay.com/photo/2019/08/13/10/15/strong-woman-4403004_960_720.jpg"
-                            class="img-responsive" alt="Appointment">
+
                     </div>
                 </div>
-                <div class="col-md-8 col-sm-12">
+                <div class="col-md-8 col-sm-12" style="background-color: rgb(141, 137, 137);">
                     <form action="{%url 'index' %}" method="post" enctype="multipart/form-data" novalidate>
                         <div style='display:none'>
                             <input type="hidden" name="csrfmiddlewaretoken" value="a643fab735d5ce6377ff456e73c4b1af" />
@@ -64,6 +63,11 @@
                             </div>
                         </div>
                     </form>
+                </div>
+                <div class="col-md-2 hidden-sm">
+                    <div class="appointment-img">
+
+                    </div>
                 </div>
             </div>
         </div>
