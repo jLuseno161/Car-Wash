@@ -1,6 +1,5 @@
 {%extends 'base.html'%}
 {% load static %}
-{% load bootstrap3 %}
 {% load crispy_forms_tags %}
 {% block content %}
 
@@ -8,10 +7,15 @@
     <div id="overlay">
         <div class="col-md-2"></div>
         <div class=" col-md-5 text-left">
-            <h1 style="color:gold; font-weight: 700; font-size:33pt">Lorem Services</h1>
-            <p style="font-weight: 700;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore
-                et dolore magna aliqua. <br> Ut enim ad minim veniam</p>
+            <h1 style="color:gold; font-weight: 700; font-size:33pt">AUTOWAVES</h1>
+            <p style="font-weight: 500; font-size:14pt" class="text-justify">We strive to be your most convenient car
+                washing option by
+                bringing our service
+                right to your doorstep. Our pricing is competitive and our knowledge of detailing is unmatched.
+                <br>Whether
+                you are seeking a quick car wash that comes to you or a show car quality finish. Autwaves carwash has
+                the skills to get the job done. We're happy to work with you to put together a package that addresses
+                your needs, no more no less.</p>
         </div>
         <div class="col-md-5"></div>
 
@@ -27,15 +31,19 @@
                     <h5 class="card-title" style="font-weight: 700; font-size: 15pt; color:navy">
                         {{plan.plan}}</h5>
 
-                    <div class="card-body">
-                        <hr>
-                        <h4 class="card-title" style="font-weight: 700;">${{plan.price}}</h4>
-                        <p>{{plan.duration}}</p>
+                    <div class="card-body" style="background-color: rgb(36, 35, 35);">
+                        <div style="background-color: gold;">
+                            <hr>
+                            <h4 class="card-title" style="font-weight: 700;">${{plan.price}}</h4>
+                            <p>{{plan.duration}}</p>
+                            <hr>
+                        </div>
+                        <span style="color:white">{{plan.service.all|join:"<br>"}}</span>
                         <hr>
 
-                        {{plan.service.all|join:"<br>"}}
-                        <hr>
-                        <input type="button" value="Book Now" style="margin-bottom: 5%;">
+                        <a href="{% url 'app' %}" style="color:black; text-decoration:none;"> <button
+                                style="border:1px solid gold; background-color: gold;margin-bottom: 2%" type="button"
+                                class="btn">BOOK NOW</button> </a>
 
                     </div>
                 </div>
@@ -45,83 +53,12 @@
 
     </div>
 </section>
-
-<section class="appointment">
-    <div id="app_overlay">
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 hidden-sm">
-                    <div class="appointment-img">
-                        <img src="https://cdn.pixabay.com/photo/2019/08/13/10/15/strong-woman-4403004_960_720.jpg"
-                            class="img-responsive" alt="Appointment">
-                    </div>
-                </div>
-                <div class="col-md-8 col-sm-12">
-                    <form action="{%url 'index' %}"  method="post" enctype="multipart/form-data" novalidate>
-                        <div style='display:none'>
-                            <input type="hidden" name="csrfmiddlewaretoken" value="a643fab735d5ce6377ff456e73c4b1af" />
-                        </div>
-                        {% csrf_token %}
-
-                        <div class="form-row">
-                            <div class="form-group col-md-12 mb-0">
-                                <h5 class="form-heading-title"><span class="form-heading-no">1.</span>Vehicle
-                                    Information</h5>
-                            </div>
-                            <div class="form-group col-md-6 mb-0">
-                                {{ form.plan|as_crispy_field }}
-                            </div>
-                            <div class="form-group col-md-6 mb-0">
-                                {{ form.vehicle_type|as_crispy_field }}
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-12 mb-0">
-                                <h5 class="form-heading-title"><span class="form-heading-no">2.</span>Appointment
-                                    Information</h5>
-                            </div>
-                            <div class="form-group col-md-6 mb-0">
-                                {{ form.appointment_date|as_crispy_field }}
-                            </div>
-                            <div class="form-group col-md-6 mb-0">
-                                {{ form.timeframe|as_crispy_field }}
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-12 mb-0">
-                                <h5 class="form-heading-title"><span class="form-heading-no">2.</span>Contact
-                                    Information</h5>
-                            </div>
-
-
-
-                            <div class="form-group col-md-6 mb-0">
-                                {{ form.email|as_crispy_field }}
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6 mb-0">
-                                {{ form.mobile|as_crispy_field }}
-                            </div>
-                        </div>
-
-                        <!-- <button type="submit">Submit</button> -->
-
-                        <div class="form-row">
-                            <div class="form-group col-md-12 mb-0 text-right">
-                                <div class="pull-right">
-                                    <input type="submit" name="submit" value="Submit" class="submit submitButton" id="submit-id-submit" />
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-    </div>
+<hr>
+<section class="booking container text-center ">
+    <h2 style="font-weight: 700;">Schedule <span style="color:gold">Your Appointment Today</span></h2>
+    <h3>Book and save with a 15% discount on for the first 5 customers</h3>
+    <a href="{% url 'app' %}" style="color:black; text-decoration:none;"> <button
+            style="border:1px solid black; background-color: white; border-radius:0%" type="button" class="btn">Appointment</button> </a>
 </section>
 
 {% endblock %}

@@ -11,7 +11,7 @@
 #overlay {
     top: 0;
     bottom: 0;
-    padding-bottom: 34%;
+    padding-bottom: 30%;
     padding-top: 12%;
     font-size: 15pt;
     background-color: rgba(51, 45, 45, 0.5);
@@ -27,7 +27,7 @@
 }
 
 .aboutUs {
-    background-color: goldenrod;
+    background-color: rgb(222, 226, 230);
     color: #11162c;
     padding: 20px;
 }
@@ -70,7 +70,6 @@ footer {
 }
 
 .appointment {
-    background-color:#1E222B;
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0 auto;
@@ -87,3 +86,7 @@ footer {
     color: whitesmoke;
 }
 
+.booking{
+    margin-top:6%;
+    margin-bottom:6%;
+}

@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 
+
     {% if title %}
-    <title>AutoWash - {{title}}</title>
+    <title>AutoWaves - {{title}}</title>
     {% else %}
-    <title> AutoWash</title>
+    <title> AutoWaves</title>
     {% endif %}
     {{form.media}}
 </head>
@@ -28,10 +29,16 @@
     {% bootstrap_javascript %}
     {% endblock %}
 </body>
+
+
 <footer class="footer">
     <div class="row text-center copyright">
-        <p class="col-md-12">User Terms of Service | Carwash Terms of Service | Pricing terms | Privacy policy | About us | FAQ |
+        <p class="col-md-12">User Terms of Service | Carwash Terms of Service | Pricing terms | Privacy policy | About
+            us | FAQ |
             Contact <br>© AutoWaves Ltd 2021.</p>
     </div>
+
+    
 </footer>
+
 </html

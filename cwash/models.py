@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.utils.timezone import now
+
+
 
 
 class Profile(models.Model):
@@ -49,7 +52,7 @@ class Washplan(models.Model):
 
 
 class Booking(models.Model):
-    user = models.OneToOneField(User,default='', on_delete=models.CASCADE)
+    user = models.ForeignKey(User,default='', on_delete=models.CASCADE)
     email = models.CharField(max_length=30, blank=True)
     mobile = models.IntegerField()
     plan = models.ForeignKey(Washplan, on_delete=models.CASCADE, default='')
@@ -73,3 +76,4 @@ class Booking(models.Model):
         ("Afternoon", 'Afternoon'))
     timeframe = models.CharField(
         choices=time_frame, default=0, blank=False, max_length=50)
+    created_date = models.DateTimeField(default=now, editable=False)

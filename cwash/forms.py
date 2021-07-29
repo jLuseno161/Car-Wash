@@ -27,29 +27,26 @@ class UpdateProfileForm(forms.ModelForm):
         fields = ['profile_pic', 'bio', 'contact']
 
 
-
 class AppointmentForm(forms.ModelForm):
-    # [...]
-    # def __init__(self, *args, **kwargs):
-    #     super(AppointmentForm,self).__init__(*args, **kwargs)
-    #     self.helper = FormHelper()
-    #     self.helper.form_method = 'post'
-    #     self.helper.form_show_labels = False
-    #     self.helper.add_input(Submit('save', 'save', css_class = 'btn-primary'))
+    [...]
 
+    def __init__(self, *args, **kwargs):
+        super(AppointmentForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        # self.helper.form_method = 'post'
+        self.helper.form_show_labels = False
+    #     self.helper.add_input(Submit('save', 'save', css_class = 'btn-primary'))
 
     class Meta:
         model = Booking
 
-    #     widgets = {
-    #         # 'user': forms.TextInput(attrs={'placeholder': 'Enter your name'}),
-    #         'mobile': forms.TextInput(attrs={'placeholder': 'Enter Mobile No.'}),
-    #         'email': forms.TextInput(attrs={'placeholder': 'eg: mymail@gmail.com'}),
-    #         'plan': forms.Select(),
-    #         'vehicle_type': forms.Select(),
-    #         'timeframe': forms.Select(),
-    #         'appointment_date': forms.TimeInput(attrs={'placeholder': 'Appointment Date'})
-    #     }
-        fields = ('mobile', 'email', 'plan',
+        widgets = {
+            # 'user': forms.TextInput(attrs={'placeholder': 'Enter your name'}),
+            'mobile': forms.TextInput(attrs={'placeholder': 'Enter Mobile No.'}),
+            'plan': forms.Select(),
+            'vehicle_type': forms.Select(),
+            'timeframe': forms.Select(),
+            'appointment_date': forms.TimeInput(attrs={'placeholder': 'Appointment Date'})
+        }
+        fields = ('mobile', 'plan',
                   'vehicle_type', 'timeframe', 'appointment_date')
-

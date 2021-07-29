@@ -1,0 +1,74 @@
+{%extends 'base.html'%}
+{% load static %}
+{% load bootstrap3 %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<section class="appointment">
+    <div id="app_overlay">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 hidden-sm">
+                    <div class="appointment-img">
+                        <img src="https://cdn.pixabay.com/photo/2019/08/13/10/15/strong-woman-4403004_960_720.jpg"
+                            class="img-responsive" alt="Appointment">
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-12">
+                    <form action="{%url 'index' %}" method="post" enctype="multipart/form-data" novalidate>
+                        <div style='display:none'>
+                            <input type="hidden" name="csrfmiddlewaretoken" value="a643fab735d5ce6377ff456e73c4b1af" />
+                        </div>
+                        {% csrf_token %}
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                <h5 class="form-heading-title"><span class="form-heading-no">1.</span>Vehicle
+                                    Information</h5>
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.plan|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.vehicle_type|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                <h5 class="form-heading-title"><span class="form-heading-no">2.</span>Appointment
+                                    Information</h5>
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.appointment_date|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.timeframe|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12 mb-0">
+                                <h5 class="form-heading-title"><span class="form-heading-no">2.</span>Contact
+                                    Information</h5>
+                            </div>
+
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.mobile|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12 mb-0 text-right">
+                                <div class="pull-right">
+                                    <input type="submit" name="submit" value="Submit" class="submit btn btn-primary" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

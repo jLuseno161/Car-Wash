@@ -1,4 +1,4 @@
-from cwash.models import Profile, Washplan, services
+from cwash.models import Booking, Profile, Washplan, services
 from django.contrib.auth.models import User
 from cwash.forms import AppointmentForm, SignUpForm, UpdateProfileForm, UpdateUserForm
 from django.http.response import HttpResponse, HttpResponseRedirect
@@ -13,16 +13,8 @@ from django.contrib.auth import login, authenticate
 def index(request):
     plans = Washplan.objects.all().order_by('price')
     service = services.objects.all()
-    if request.method == 'POST':
-        form = AppointmentForm(request.POST)
-        if form.is_valid():
-            form.instance.user = request.user
-            user = form.save()
-            user.save()
-        return redirect('index')
-    else:
-        form = AppointmentForm()
-    return render(request, 'index.html', {'plans': plans, 'service': service, 'form': form})
+
+    return render(request, 'index.html', {'plans': plans, 'service': service})
 
 
 def signup(request):
@@ -45,8 +37,9 @@ def signup(request):
 @login_required(login_url='/accounts/login/')
 def profile(request):
     current_user = request.user
-    # posts = Post.objects.filter(user=current_user.id).all
-    return render(request, 'registration/profile.html')
+    bookings = Booking.objects.filter(user=current_user.id).all
+
+    return render(request, 'registration/profile.html', {"bookings": bookings})
 
 
 @login_required(login_url='/accounts/login/')
@@ -60,4 +53,21 @@ def update_profile(request, id):
         form2.save()
         return HttpResponseRedirect("/profile")
 
+    bookings = Booking.objects.all()
+
     return render(request, "registration/update_profile.html", {"form": form, "form2": form2})
+
+
+@login_required(login_url='/accounts/login/')
+def book_appointment(request):
+    if request.method == 'POST':
+        form = AppointmentForm(request.POST)
+        if form.is_valid():
+            form.instance.user = request.user
+            form.instance.email = request.user.email
+            user = form.save()
+            user.save()
+        return redirect('book')
+    else:
+        form = AppointmentForm()
+    return render(request, 'book.html', {'form': form})
